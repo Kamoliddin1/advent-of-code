@@ -1,6 +1,6 @@
 import pytest
 
-from solution import calc_part1, calc_part2
+from .solution import calc_part1, calc_part2
 
 test_data = [
     ("""forward 5

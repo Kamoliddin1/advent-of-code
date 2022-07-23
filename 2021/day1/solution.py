@@ -9,14 +9,14 @@ def parse(input_str: str) -> List[int]:
     return lines
 
 
-def calc_part1(input_str):
+def calc_part1(input_str) -> int:
     data = parse(input_str)
     return sum(second > first for first, second in zip(data, data[1:]))
 
 
-def calc_part2(input_str):
+def calc_part2(input_str) -> int:
     data = parse(input_str)
-    sum_of_three = [sum(data[i:i+3]) for i in range(len(data)-2)]
+    sum_of_three = [sum(data[i:i + 3]) for i in range(len(data) - 2)]
     return sum([first < second for first, second in zip(sum_of_three, sum_of_three[1:])])
 
 
@@ -37,8 +37,8 @@ def my_part2(input_str):
     data = parse(input_str)
     sum_of_3: List = []
     count = 0
-    for datum in range(len(data)-2):
-        sum_of_3.append(sum(data[datum: datum+3]))
+    for datum in range(len(data) - 2):
+        sum_of_3.append(sum(data[datum: datum + 3]))
     for first, second in zip(sum_of_3, sum_of_3[1:]):
         if second > first:
             count += 1

@@ -14,7 +14,7 @@ def parse(input_str: str) -> List[Tuple[str, int]]:
     return data
 
 
-def calc_part1(input_str: str):
+def calc_part1(input_str: str) -> int:
     data = parse(input_str)
     horizontal: int = 0
     depth: int = 0
@@ -28,7 +28,7 @@ def calc_part1(input_str: str):
     return depth * horizontal
 
 
-def calc_part2(input_str: str):
+def calc_part2(input_str: str) -> int:
     data = parse(input_str)
     horizontal, depth, aim = 0, 0, 0
     for command, step in data:
