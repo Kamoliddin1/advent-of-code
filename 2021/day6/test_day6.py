@@ -1,5 +1,5 @@
 import pytest
-from solution import calc_part1
+from .solution import calc_part1
 
 test_data = [("""
         3,4,3,1,2
