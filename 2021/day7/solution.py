@@ -4,7 +4,7 @@ INPUT = Path(__file__).parent / 'input.txt'
 
 
 def parse(input_str: str) -> List[int]:
-    return sorted([int(i) for i in input_str.split(',') if i.strip()])
+    return [int(i) for i in input_str.split(',') if i.strip()]
 
 
 def middle_of(parsed):
@@ -19,7 +19,7 @@ def middle_of(parsed):
 
 
 def calc_part1(input_str):
-    parsed = parse(input_str)
+    parsed = sorted(parse(input_str))
     middle_elem = middle_of(parsed)
     sum_ = 0
     for elem in range(len(parsed)):
@@ -27,10 +27,24 @@ def calc_part1(input_str):
     return sum_
 
 
+def calc_part2(input_str):
+    crabs = parse(input_str)
+    full_cost = []
+    for pos in range(max(crabs)):
+        cost = 0
+        for crab in crabs:
+            n = abs(crab - pos)
+            path = (n * (n+1)) // 2
+            cost += path
+        full_cost.append(cost)
+    return min(full_cost)
+
+
 def main():
     with open(INPUT) as fp:
         input_str = fp.read()
         print(calc_part1(input_str))
+        print(calc_part2(input_str))
 
 
 if __name__ == '__main__':
